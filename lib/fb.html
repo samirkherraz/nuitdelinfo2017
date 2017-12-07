@@ -20,7 +20,9 @@ window.fbAsyncInit = function() {
 
   FB.getLoginStatus((response) => {
     if (response.status === "connected") {
-      getId();
+      FB.api("/me/events", (response) => {
+        console.log(response);
+      })
     }
     else{
       console.log('snif')
