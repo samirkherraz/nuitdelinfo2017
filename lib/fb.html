@@ -1,0 +1,48 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Test fb API</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="fb-root"></div>
+
+  <div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+
+
+<script>
+window.fbAsyncInit = function() {
+  FB.init({
+    appId            : '1655409924521552',
+    autoLogAppEvents : true,
+    xfbml            : false,
+    version          : 'v2.11'
+  });
+
+  FB.getLoginStatus((response) => {
+    if (response.status === "connected") {
+      FB.api('/me', function(response) {
+       console.log('Good to see you, ' + response.name + '.');
+     });
+    }
+  })
+
+};
+
+(function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/fr_FR/sdk/debug.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+
+
+</script>
+</body>
+</html>
