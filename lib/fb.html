@@ -2,7 +2,6 @@
 <head>
   <meta charset="utf-8" />
   <title>Test fb API</title>
-  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <div id="fb-root"></div>
@@ -21,7 +20,9 @@ window.fbAsyncInit = function() {
     appId            : '1655409924521552',
     autoLogAppEvents : true,
     xfbml            : false,
-    version          : 'v2.11'
+    version          : 'v2.11',
+    status           : true,
+    cookie           : true
   });
 
   FB.getLoginStatus((response) => {
@@ -29,6 +30,9 @@ window.fbAsyncInit = function() {
       FB.api('/me', function(response) {
        console.log('Good to see you, ' + response.name + '.');
      });
+    }
+    else{
+      consol.log('snif')
     }
   })
 
