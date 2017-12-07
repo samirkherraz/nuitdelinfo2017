@@ -5,8 +5,14 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <fb:login-button autologoutlink="true" onlogin="OnRequestPermission();">
-  </fb:login-button>
+  <div id="fb-root"></div>
+
+  <div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
 
 
 <script>
@@ -18,16 +24,13 @@ window.fbAsyncInit = function() {
     version          : 'v2.11'
   });
 
-  FB.api(
-     "/{event-id}",
-     function (response) {
-       if (response && !response.error) {
-         console.log(response);
-       } else {
-         console.log(response.error);
-       }
-     }
-  );
+  FB.getLoginStatus((response) => {
+    if (response.status === "connected") {
+      FB.api('/me', function(response) {
+       console.log('Good to see you, ' + response.name + '.');
+     });
+    }
+  })
 
 };
 
