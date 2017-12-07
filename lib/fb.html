@@ -37,10 +37,10 @@ window.fbAsyncInit = function() {
 
   FB.getLoginStatus((response) => {
     if (response.status === "connected") {
-      FB.api("/me", (response) => {
+      FB.api("/me", checkError((response) => {
         document.getElementById("id").innerHTML=response.name;
         processEvent(response.id);
-      });
+      }));
     }
     else{
       console.log("Error: not connected");
