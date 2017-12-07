@@ -3,79 +3,15 @@
   <meta charset="utf-8" />
   <title>Test fb API</title>
   <script src="https://connect.facebook.net/fr_FR/sdk/debug.js"></script>
+  <script src="fb.js"></script>
 </head>
 <body>
-  <script src="fb.js"></script>
+
   <div id="fb-root"></div>
 
   <button id="btn-login">Login</button>
   <button id="btn-logout">Logout</button>
 
   <p id="id"></p>
-
-<script>
-window.fbAsyncInit = function() {
-  FB.init({
-    appId            : '1655409924521552',
-    autoLogAppEvents : true,
-    xfbml            : false,
-    version          : 'v2.11',
-    status           : true,
-    cookie           : true
-  });
-
-  function login() {
-    FB.login((response) => {
-      console.log("logged in");
-    }, {scope: 'user_events'});
-  }
-  document.getElementById("btn-login").addEventListener("click", login);
-
-  function processEvent(userId) {
-    FB.api(`/${userId}/events`, checkError(printEvents));
-  }
-
-  FB.getLoginStatus((response) => {
-    if (response.status === "connected") {
-      FB.api("/me", checkError((response) => {
-        document.getElementById("id").innerHTML=response.name;
-        processEvent(response.id);
-      }));
-    }
-    else{
-      console.log("Error: not connected");
-    }
-  })
-
-};
-
-/*
-function login() {
-
-}
-
-function logout() {
-  FB.logout((response) => {
-    console.log("logged out");
-  });
-}
-*/
-
-(function(d, s, id){
-   var js, fjs = d.getElementsByTagName(s)[0];
-   if (d.getElementById(id)) {return;}
-   js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/fr_FR/sdk/debug.js";
-   fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));
-
-document.addEventListener("DOMContentLoaded", () => {
-  /*
-  document.getElementById("btn-login").addEventListener("click", login());
-  document.getElementById("btn-logout").addEventListener("click", logout());
-  */
-});
-
-</script>
 </body>
 </html>
