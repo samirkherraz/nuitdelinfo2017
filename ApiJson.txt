@@ -1,0 +1,16 @@
+API donnees geo -> meteo(json)
+http://www.infoclimat.fr/public-api/gfs/json?_ll=48.85341,2.3488&_auth=UUsFElQqUHJQfVZhUiRSewBoUGVZL1B3VCgBYg9qAn8Eb1MyVTVQNgJsUSwBLlBmVHlTMA41CTkBagtzDX8DYlE7BWlUP1A3UD9WM1J9UnkALlAxWXlQd1Q2AWUPZgJ%2FBGVTNlUyUCwCb1E2ATVQelRmUzcONgkuAX0LbQ1lA2FRMAVnVDBQM1A3VjZSZ1J5ACxQNVk3UGpUPgFuDzMCZARmUz9VNlA6AjtRNwEzUHpUb1MxDjEJMgFlC28NYQNjUS0FflROUEFQIlZ0UiBSMwB1UC1ZM1A2VGM%3D&_c=da1f3459282872cfd35015afdee63be7
+
+API adresse -> donnees geo
+https://developers.google.com/maps/documentation/javascript/geocoding?hl=FR
+
+Lien video prevention secu routiere
+http://www.securite-routiere.gouv.fr/medias/galerie-videos
+
+Lien video formation premier secours
+https://www.ylea.eu/gestes-de-premier-secours-en-video.php
+
+Sources :
+infoclimat.fr pour api meteo
+securite-routiere.gouv.fr pour video secu routiere
+ylea.eu pour video formation geste premier secours
