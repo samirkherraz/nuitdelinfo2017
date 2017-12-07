@@ -4,7 +4,7 @@
   <title>Test fb API</title>
 </head>
 <body>
-  <script src="/lib/fb.js"></script>
+  <script src="fb.js"></script>
   <div id="fb-root"></div>
 
 <script>
@@ -20,10 +20,10 @@ window.fbAsyncInit = function() {
 
   FB.getLoginStatus((response) => {
     if (response.status === "connected") {
-      console.log(my_id());
+      getId();
     }
     else{
-      consol.log('snif')
+      console.log('snif')
     }
   })
 
