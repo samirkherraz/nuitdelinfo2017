@@ -2,16 +2,37 @@
 <head>
   <meta charset="utf-8" />
   <title>Test fb API</title>
-  <script src="https://connect.facebook.net/fr_FR/sdk/debug.js"></script>
-  <script src="fb.js"></script>
+  <script src="/lib/cookies_min.js"></script>
 </head>
 <body>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1655409924521552',
+      xfbml      : true,
+      version    : 'v2.11'
+    });
+    FB.AppEvents.logPageView();
+  };
 
-  <div id="fb-root"></div>
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+ </script>
+ <script src="fb.js"></script>
 
-  <button id="btn-login">Login</button>
-  <button id="btn-logout">Logout</button>
+ <h1>Facebook</h1>
 
-  <p id="id"></p>
+  <button id="btn-login"></button>
+
+  <h2>User name :</h2>
+  <p><span id="id"></span></p>
+
+  <h2>Events :</h2>
+  <ul id="ul-events"><ul>
 </body>
 </html>
